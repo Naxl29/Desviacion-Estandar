@@ -20,11 +20,12 @@ class Database:
         self.cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database}")
         self.cursor.execute(f"USE {database}")
         self.cursor.execute("""
-            CREATE TABLE IF NOT EXISTS desviacion_estandar (
+            CREATE TABLE IF NOT EXISTS estadisticas (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 datos VARCHAR(100) NOT NULL,
                 media FLOAT NOT NULL,
                 desviacion_estandar FLOAT NOT NULL,
+                cantidad INT NOT NULL,
                 fecha DATETIME NOT NULL
                 );
             """)
