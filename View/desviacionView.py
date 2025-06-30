@@ -31,6 +31,32 @@ class DesviacionView:
                 except ValueError:
                     print(Fore.RED + "Error: Debe ingresar un número válido." + Style.RESET_ALL)
         return numeros
+
+    @staticmethod
+    def mostrar_calculo(modelo):
+        print(Fore.GREEN + "Cálculo realizado:" + Style.RESET_ALL)
+        print(f"Datos: {modelo.datos}")
+        print(f"Media: {modelo.media}")
+        print(f"Desviación estándar: {modelo.desviacion_estandar}")
+        print(f"Fecha: {modelo.fecha}")
     
+    @staticmethod
+    def mostrar_resultado(fila):
+        if fila:
+            datos_lista = list(map(float, fila['datos'].split(',')))
+            print (Fore.GREEN + "Último cálculo guardado:" + Style.RESET_ALL)
+            print(f"Datos: {datos_lista}")
+            print(f"Media: {fila['media']}")
+            print(f"Desviación estándar: {fila['desviacion_estandar']}")
+            print(f"Fecha: {fila['fecha']}")
+        else:
+            print(Fore.RED + "No hay resultados disponibles." + Style.RESET_ALL)
     
-    
+    @staticmethod
+    def mostrar_mensaje(mensaje, tipo="info"):
+        if tipo == "ok":
+            print(Fore.RED + mensaje + Style.RESET_ALL)
+        elif tipo == "error":
+            print(Fore.RED + mensaje + Style.RESET_ALL)
+        else:
+            print(mensaje)
