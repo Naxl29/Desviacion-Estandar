@@ -1,11 +1,11 @@
 from datetime import datetime
-import statistics
+import numpy as np
 
 class Desviacion:
     def __init__(self, datos: list):
         self.datos = datos
-        self.media = statistics.mean(datos)
-        self.desviacion_estandar = statistics.stdev(datos)
+        self.media = float(np.mean(datos))
+        self.desviacion_estandar = float(np.std(datos, ddof=1))  
         self.cantidad = len(datos)
         self.fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
