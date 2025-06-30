@@ -10,7 +10,7 @@ class Database:
                 password="",
                 database="ds"
             )
-            self.cursor = self.connection.cursor(dictrionary=True)
+            self.cursor = self.connection.cursor(dictionary=True)
             self.create_database(database)
             self.connection.database = database
         except Error as e:
