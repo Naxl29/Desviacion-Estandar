@@ -65,11 +65,11 @@ class DesviacionView:
             return DesviacionView.preguntar_grafico()
         
     @staticmethod
-    def preguntar_grafico(datos, media, desviacion):
+    def mostrar_grafico(datos, media, desviacion):
         plt.figure(figsize=(8, 5))
         plt.plot(datos, marker='o', label='Datos')
         plt.axhline(media, color='green', linestyle='--', label='Media')
-        plt.title(f'Gráfico de Datos: {round(desviacion, 2)}')
+        plt.title(f'Desviación Estándar: {round(desviacion, 2)}')
         plt.xlabel('Índice')
         plt.ylabel('Valor')
         plt.legend()
