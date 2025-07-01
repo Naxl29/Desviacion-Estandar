@@ -21,6 +21,8 @@ class DesviacionController:
             elif opcion == '3':
                 self.mostrar_ultimo()
             elif opcion == '4':
+                self.mostrar_todos()
+            elif opcion == '5':
                 print("Saliendo del programa.")
                 break
             else:
@@ -47,6 +49,14 @@ class DesviacionController:
         else:
             self.vista.mostrar_mensaje("No hay resultados disponibles.")
 
+    def mostrar_todos(self):
+        resultados = self.dao.obtener_todos()
+        if resultados:
+            for fila in resultados:
+                self.vista.mostrar_resultados(fila)
+        else:
+            self.vista.mostrar_mensaje("No hay resultados disponibles.")
+    
     def predefinido(self):
         speed= [86, 87, 88, 86, 87, 85, 86]
         desviacion = Desviacion(speed)

@@ -13,3 +13,7 @@ class DesviacionDAO:
 
     def obtener_ultimo(self):
         return self.db.fetch_one("SELECT * FROM estadisticas ORDER BY id DESC LIMIT 1")
+    
+    def obtener_todos(self):
+        return self.db.fetch_all("SELECT * FROM estadisticas ORDER BY id DESC")
+

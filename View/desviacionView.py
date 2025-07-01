@@ -57,6 +57,18 @@ class DesviacionView:
             print(Fore.RED + "No hay resultados disponibles." + Style.RESET_ALL)
     
     @staticmethod
+    def mostrar_resultados(fila):
+        if fila:
+            datos_lista = list(map(float, fila['datos'].split(',')))
+            print ("")
+            print(f"Datos: {datos_lista}")
+            print(f"Media: {fila['media']}")
+            print(f"Desviación estándar: {fila['desviacion_estandar']}")
+            print(f"Fecha: {fila['fecha']}")
+        else:
+            print(Fore.RED + "No hay resultados disponibles." + Style.RESET_ALL)
+    
+    @staticmethod
     def preguntar_grafico():
         respuesta = input(Fore.YELLOW + "¿Desea ver un gráfico de los datos? (s/n): " + Style.RESET_ALL).strip().lower()
         if respuesta == 's':
