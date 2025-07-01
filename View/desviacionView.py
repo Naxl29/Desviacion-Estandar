@@ -10,7 +10,9 @@ class DesviacionView:
         print("1. Crear manualmente")
         print("2. Lista predeterminada")
         print("3. Mostrar último cálculo")
-        print("4. Salir")
+        print("4. Mostrar todos los cálculos")
+        print("5. Eliminar todos los cálculos")
+        print("6. Salir")
 
     @staticmethod
     def pedir_cantidad():
