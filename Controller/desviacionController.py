@@ -6,9 +6,10 @@ class DesviacionController:
         self.vista = vista
         self.dao = DesviacionDAO()
 
+    # Se muestra el menú principal y se gestiona las opciones del usuario
     def ejecutar(self):
         while True:
-            self.vista.mostrar_menu()
+            self.vista.mostrar_menu() # Muestra el menú principal
             opcion = input("Seleccione una opción: ")
 
             if opcion == '1':
@@ -39,6 +40,7 @@ class DesviacionController:
             else:
                 self.vista.mostrar_mensaje("Error: Opción no válida. Intente de nuevo.")
     
+    # Crea un cálculo de desviación estándar manualmente
     def crear_manual(self, lista):
         try:
             desviacion = Desviacion(lista)
@@ -52,7 +54,8 @@ class DesviacionController:
         except Exception as e:
             print(f"Error al calcular desviación: {e}")
             return None
-        
+
+    # Muestra el último cálculo guardado en la base de datos  
     def mostrar_ultimo(self):
         resultado = self.dao.obtener_ultimo()
         if resultado:

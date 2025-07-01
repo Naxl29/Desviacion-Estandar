@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 class DesviacionView:
 
+    # Muestra el menú principal 
     @staticmethod
     def mostrar_menu():
         print(Fore.CYAN + "Menú de Desviación Estándar:" + Style.RESET_ALL)
@@ -14,6 +15,7 @@ class DesviacionView:
         print("5. Eliminar todos los cálculos")
         print("6. Salir")
 
+    # Se solicita la cantidad de números a calcular
     @staticmethod
     def pedir_cantidad():
         try:
@@ -23,6 +25,7 @@ class DesviacionView:
             print(Fore.RED + "Error: Debe ingresar un número entero." + Style.RESET_ALL)
             return 0
     
+    # Se solicita los números a calcular
     @staticmethod
     def pedir_numeros(cantidad):
         numeros = []
@@ -36,6 +39,7 @@ class DesviacionView:
                     print(Fore.RED + "Error: Debe ingresar un número válido." + Style.RESET_ALL)
         return numeros
 
+    # Muestra el cálculo que se realizó
     @staticmethod
     def mostrar_calculo(modelo):
         print(Fore.GREEN + "Cálculo realizado:" + Style.RESET_ALL)
@@ -44,6 +48,7 @@ class DesviacionView:
         print(f"Desviación estándar: {modelo.desviacion_estandar}")
         print(f"Fecha: {modelo.fecha}")
     
+    # Muestra el último cálculo guardado 
     @staticmethod
     def mostrar_resultado(fila):
         if fila:
@@ -75,6 +80,7 @@ class DesviacionView:
         else:
             print(Fore.RED + "No hay resultados disponibles." + Style.RESET_ALL)
     
+    # Pregunta al usuario si desea ver el gráfico de los datos
     @staticmethod
     def preguntar_grafico():
         respuesta = input(Fore.YELLOW + "¿Desea ver un gráfico de los datos? (s/n): " + Style.RESET_ALL).strip().lower()
@@ -85,7 +91,8 @@ class DesviacionView:
         else:
             print(Fore.RED + "Respuesta no válida. Por favor, ingrese 's' o 'n'." + Style.RESET_ALL)
             return DesviacionView.preguntar_grafico()
-        
+    
+    # Muestra el gráfico de los datos de desviación estándar
     @staticmethod
     def mostrar_grafico(datos, media, desviacion):
         plt.figure(figsize=(8, 5))
@@ -99,6 +106,7 @@ class DesviacionView:
         plt.tight_layout()
         plt.show()
 
+    # Muestra un mensaje personalizado según el tipo
     @staticmethod
     def mostrar_mensaje(mensaje, tipo="info"):
         if tipo == "ok":

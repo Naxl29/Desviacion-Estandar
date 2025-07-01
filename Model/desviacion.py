@@ -9,6 +9,7 @@ class Desviacion:
         self.cantidad = len(datos)      # Guarda la cantidad de números de la lista
         self.fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+    # Convierte los datos a un formato adecuado para insertar en la base de datos
     def to_insert_tuple(self):
         return (
             ",".join(map(str, self.datos)), # Convierte la lista de datos en un string
