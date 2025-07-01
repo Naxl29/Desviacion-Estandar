@@ -23,6 +23,17 @@ class DesviacionController:
             elif opcion == '4':
                 self.mostrar_todos()
             elif opcion == '5':
+                resultados = self.dao.obtener_todos()
+                if not resultados:
+                    self.vista.mostrar_mensaje("No hay cálculos para eliminar.")
+                else:
+                    preguntar = self.vista.preguntar_eliminar()
+                    if preguntar == True:
+                        self.dao.eliminar_todos()
+                        self.vista.mostrar_mensaje("Se eliminaron todos los cálculos.")
+                    else:
+                        self.vista.mostrar_mensaje("No se eliminaron los cálculos.")
+            elif opcion == '6':
                 print("Saliendo del programa.")
                 break
             else:

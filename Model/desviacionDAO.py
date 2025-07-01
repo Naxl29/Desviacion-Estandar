@@ -17,3 +17,6 @@ class DesviacionDAO:
     def obtener_todos(self):
         return self.db.fetch_all("SELECT * FROM estadisticas ORDER BY id DESC")
 
+    def eliminar_todos(self):
+        return self.db.execute_query("DELETE FROM estadisticas")
+

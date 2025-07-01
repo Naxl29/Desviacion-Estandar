@@ -100,3 +100,14 @@ class DesviacionView:
             print(Fore.RED + mensaje + Style.RESET_ALL)
         else:
             print(mensaje)
+
+    @staticmethod
+    def preguntar_eliminar():
+        respuesta = input(Fore.YELLOW + "¿Está seguro de que desea eliminar todos los cálculos? (s/n): " + Style.RESET_ALL).strip().lower()
+        if respuesta == 's':
+            return True
+        elif respuesta == 'n':
+            return False
+        else:
+            print(Fore.RED + "Respuesta no válida. Por favor, ingrese 's' o 'n'." + Style.RESET_ALL)
+            return DesviacionView.preguntar_eliminar()
