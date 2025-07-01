@@ -17,8 +17,10 @@ class DesviacionController:
                     numeros = self.vista.pedir_numeros(cantidad)
                     self.crear_manual(numeros)
             elif opcion == '2':
-                self.mostrar_ultimo()
+                self.predefinido()
             elif opcion == '3':
+                self.mostrar_ultimo()
+            elif opcion == '4':
                 print("Saliendo del programa.")
                 break
             else:
@@ -44,3 +46,14 @@ class DesviacionController:
             self.vista.mostrar_resultado(resultado)
         else:
             self.vista.mostrar_mensaje("No hay resultados disponibles.")
+
+    def predefinido(self):
+        speed= [86, 87, 88, 86, 87, 85, 86]
+        desviacion = Desviacion(speed)
+        self.dao.guardar(desviacion)
+        self.vista.mostrar_calculo(desviacion)
+         
+        if self.vista.preguntar_grafico():
+            self.vista.mostrar_grafico(desviacion.datos, desviacion.media, desviacion.desviacion_estandar)
+
+        return desviacion
