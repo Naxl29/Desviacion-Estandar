@@ -29,6 +29,10 @@ class DesviacionController:
             desviacion = Desviacion(lista)
             self.dao.guardar(desviacion)
             self.vista.mostrar_calculo(desviacion)
+
+            if self.vista.preguntar_grafico():
+                self.vista.mostrar_grafico(desviacion.datos, desviacion.media, desviacion.desviacion_estandar)
+
             return desviacion
         except Exception as e:
             print(f"Error al calcular desviación: {e}")
