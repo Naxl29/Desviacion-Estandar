@@ -57,14 +57,20 @@ class DesviacionView:
             print(Fore.RED + "No hay resultados disponibles." + Style.RESET_ALL)
     
     @staticmethod
-    def mostrar_resultados(fila):
-        if fila:
-            datos_lista = list(map(float, fila['datos'].split(',')))
-            print ("")
-            print(f"Datos: {datos_lista}")
-            print(f"Media: {fila['media']}")
-            print(f"Desviación estándar: {fila['desviacion_estandar']}")
-            print(f"Fecha: {fila['fecha']}")
+    def mostrar_todos(filas):
+        if filas:
+            tabla = []
+            for fila in filas:
+                datos = fila['datos']
+                media = round(fila['media'], 2)
+                desviacion = round(fila['desviacion_estandar'], 2)
+                cantidad = fila['cantidad']
+                fecha = fila['fecha']
+                tabla.append([datos, media, desviacion, cantidad, fecha])
+
+            headers = ["Datos", "Media", "Desviación Estándar", "Cantidad", "Fecha"]
+            print(Fore.CYAN + "Historial de Cálculos:" + Style.RESET_ALL)
+            print(tabulate(tabla, headers=headers, tablefmt="fancy_grid"))
         else:
             print(Fore.RED + "No hay resultados disponibles." + Style.RESET_ALL)
     

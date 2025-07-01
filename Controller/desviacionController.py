@@ -63,8 +63,7 @@ class DesviacionController:
     def mostrar_todos(self):
         resultados = self.dao.obtener_todos()
         if resultados:
-            for fila in resultados:
-                self.vista.mostrar_resultados(fila)
+            self.vista.mostrar_todos(resultados)
         else:
             self.vista.mostrar_mensaje("No hay resultados disponibles.")
     
