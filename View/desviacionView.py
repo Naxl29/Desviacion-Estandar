@@ -56,6 +56,7 @@ class DesviacionView:
         else:
             print(Fore.RED + "No hay resultados disponibles." + Style.RESET_ALL)
     
+    # Muestra todos los cálculos guardados en la base de datos
     @staticmethod
     def mostrar_todos(filas):
         if filas:
@@ -107,6 +108,7 @@ class DesviacionView:
         else:
             print(mensaje)
 
+    # Preguntar si esta seguro de que quieren eliminar todos los cálculos
     @staticmethod
     def preguntar_eliminar():
         respuesta = input(Fore.YELLOW + "¿Está seguro de que desea eliminar todos los cálculos? (s/n): " + Style.RESET_ALL).strip().lower()

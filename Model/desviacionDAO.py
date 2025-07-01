@@ -14,9 +14,11 @@ class DesviacionDAO:
     def obtener_ultimo(self):
         return self.db.fetch_one("SELECT * FROM estadisticas ORDER BY id DESC LIMIT 1")
     
+    #obtiene todos los cálculos guardados en la base de datos
     def obtener_todos(self):
         return self.db.fetch_all("SELECT * FROM estadisticas ORDER BY id DESC")
 
+    #elimina todos los cálculos guardados en la base de datos
     def eliminar_todos(self):
         return self.db.execute_query("DELETE FROM estadisticas")
 

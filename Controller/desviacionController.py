@@ -60,6 +60,7 @@ class DesviacionController:
         else:
             self.vista.mostrar_mensaje("No hay resultados disponibles.")
 
+    # Muestra  todos los cálculos guardados en la base de datos
     def mostrar_todos(self):
         resultados = self.dao.obtener_todos()
         if resultados:
@@ -67,6 +68,7 @@ class DesviacionController:
         else:
             self.vista.mostrar_mensaje("No hay resultados disponibles.")
     
+    # Método para crear un cálculo de desviación con datos predefinidos
     def predefinido(self):
         speed= [86, 87, 88, 86, 87, 85, 86]
         desviacion = Desviacion(speed)
