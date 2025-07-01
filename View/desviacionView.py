@@ -8,8 +8,9 @@ class DesviacionView:
     def mostrar_menu():
         print(Fore.CYAN + "Menú de Desviación Estándar:" + Style.RESET_ALL)
         print("1. Crear manualmente")
-        print("2. Mostrar último cálculo")
-        print("3. Salir")
+        print("2. Lista predeterminada")
+        print("3. Mostrar último cálculo")
+        print("4. Salir")
 
     @staticmethod
     def pedir_cantidad():
