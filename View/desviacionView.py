@@ -1,5 +1,6 @@
 from colorama import Fore, Style
 from tabulate import tabulate
+import matplotlib.pyplot as plt
 
 class DesviacionView:
 
@@ -52,6 +53,30 @@ class DesviacionView:
         else:
             print(Fore.RED + "No hay resultados disponibles." + Style.RESET_ALL)
     
+    @staticmethod
+    def preguntar_grafico():
+        respuesta = input(Fore.YELLOW + "¿Desea ver un gráfico de los datos? (s/n): " + Style.RESET_ALL).strip().lower()
+        if respuesta == 's':
+            return True
+        elif respuesta == 'n':
+            return False
+        else:
+            print(Fore.RED + "Respuesta no válida. Por favor, ingrese 's' o 'n'." + Style.RESET_ALL)
+            return DesviacionView.preguntar_grafico()
+        
+    @staticmethod
+    def preguntar_grafico(datos, media, desviacion):
+        plt.figure(figsize=(8, 5))
+        plt.plot(datos, marker='o', label='Datos')
+        plt.axhline(media, color='green', linestyle='--', label='Media')
+        plt.title(f'Gráfico de Datos: {round(desviacion, 2)}')
+        plt.xlabel('Índice')
+        plt.ylabel('Valor')
+        plt.legend()
+        plt.grid(True)
+        plt.tight_layout()
+        plt.show()
+
     @staticmethod
     def mostrar_mensaje(mensaje, tipo="info"):
         if tipo == "ok":
